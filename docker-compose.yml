@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+    web:
+      build: .
+      container_name: fusion_dms
+      #command: service start apache2
+      expose:
+        - "80"
+        - "9000"
+      ports:
+        - "8800:80"
+        - "9000:9000"
+      tty: true
+      volumes:
+        - ./application:/var/www/html
+      #depends_on:
+      #  - oracledb
+      
+      # docker-compose run --publish 8080:80 web bash
+    
